@@ -21,9 +21,9 @@ def build_controller() -> Controller:
     ui = SenseUI(COLORS)
     reader_factory = lambda: SerialAudioReader(cfg.COM_PORT, cfg.BAUD, cfg.READ_CHUNK_BYTES)
 
-    rec = Recorder(cfg.FS, reader_factory, get_output_dir)
-    segrec = SegmentRecorder(cfg.FS, reader_factory, get_output_dir, segment_seconds=cfg.SEGMENT_SECONDS)
-    mon = Monitor(cfg.FS, reader_factory, cfg.AUDIO_BLOCK_SAMPLES)
+    rec = Recorder(cfg.FS, reader_factory, get_output_dir, out_device=cfg.AUDIO_OUT_DEVICE, blocksize=cfg.AUDIO_BLOCK_SAMPLES)
+    segrec = SegmentRecorder(cfg.FS, reader_factory, get_output_dir, segment_seconds=cfg.SEGMENT_SECONDS, out_device=cfg.AUDIO_OUT_DEVICE, blocksize=cfg.AUDIO_BLOCK_SAMPLES)
+    mon = Monitor(cfg.FS, reader_factory, cfg.AUDIO_BLOCK_SAMPLES, out_device=cfg.AUDIO_OUT_DEVICE)
 
     # LAZY loader: wordt pas bij eerste predict uitgevoerd
     def load_model_bundle_fn():
