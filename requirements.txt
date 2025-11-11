@@ -1,14 +1,17 @@
-# Core
-numpy
-scipy
-pyserial
+# --- Core ---
+numpy==1.26.4
+scipy==1.11.4
+pyserial==3.5
 
-# Audio I/O
-sounddevice   
-soundfile      
+# --- Audio I/O ---
+sounddevice==0.4.6      
+soundfile==0.12.1       
 
-# Hardware UI
-sense-hat
+# --- Hardware UI ---
+sense-hat==2.6.0
 
-# Extra
-librosa
+# --- TFLite runtime ---
+tflite-runtime @ https://github.com/google-coral/pycoral/releases/download/release-frogfish/tflite_runtime-2.14.0-cp311-cp311-linux_aarch64.whl
+
+# --- Extra ---
+librosa==0.10.2.post1
