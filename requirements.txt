@@ -1,0 +1,14 @@
+# Core
+numpy
+scipy
+pyserial
+
+# Audio I/O
+sounddevice   
+soundfile      
+
+# Hardware UI
+sense-hat
+
+# Extra
+librosa
